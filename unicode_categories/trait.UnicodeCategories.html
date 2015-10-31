@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `UnicodeCategories` trait in crate `unicode_categories`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, UnicodeCategories">
+
+    <title>unicode_categories::UnicodeCategories - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>unicode_categories</a></p><script>window.sidebarCurrent = {name: 'UnicodeCategories', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>unicode_categories</a>::<wbr><a class='trait' href=''>UnicodeCategories</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-29411' class='srclink' href='../src/unicode_categories/lib.rs.html#22-208' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait UnicodeCategories: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> {
+    fn <a href='#tymethod.is_other_control' class='fnname'>is_other_control</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_other_format' class='fnname'>is_other_format</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_other_private_use' class='fnname'>is_other_private_use</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_letter_lowercase' class='fnname'>is_letter_lowercase</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_letter_modifier' class='fnname'>is_letter_modifier</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_letter_other' class='fnname'>is_letter_other</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_letter_titlecase' class='fnname'>is_letter_titlecase</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_letter_uppercase' class='fnname'>is_letter_uppercase</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_mark_spacing_combining' class='fnname'>is_mark_spacing_combining</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_mark_enclosing' class='fnname'>is_mark_enclosing</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_mark_nonspacing' class='fnname'>is_mark_nonspacing</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_number_decimal_digit' class='fnname'>is_number_decimal_digit</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_number_letter' class='fnname'>is_number_letter</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_number_other' class='fnname'>is_number_other</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_punctuation_connector' class='fnname'>is_punctuation_connector</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_punctuation_dash' class='fnname'>is_punctuation_dash</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_punctuation_close' class='fnname'>is_punctuation_close</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_punctuation_final_quote' class='fnname'>is_punctuation_final_quote</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_punctuation_initial_quote' class='fnname'>is_punctuation_initial_quote</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_punctuation_other' class='fnname'>is_punctuation_other</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_punctuation_open' class='fnname'>is_punctuation_open</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_symbol_currency' class='fnname'>is_symbol_currency</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_symbol_modifier' class='fnname'>is_symbol_modifier</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_symbol_math' class='fnname'>is_symbol_math</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_symbol_other' class='fnname'>is_symbol_other</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_separator_line' class='fnname'>is_separator_line</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_separator_paragraph' class='fnname'>is_separator_paragraph</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_separator_space' class='fnname'>is_separator_space</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+
+    fn <a href='#method.is_other' class='fnname'>is_other</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a> { ... }
+    fn <a href='#method.is_letter' class='fnname'>is_letter</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a> { ... }
+    fn <a href='#method.is_mark' class='fnname'>is_mark</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a> { ... }
+    fn <a href='#method.is_number' class='fnname'>is_number</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a> { ... }
+    fn <a href='#method.is_punctuation' class='fnname'>is_punctuation</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a> { ... }
+    fn <a href='#method.is_symbol' class='fnname'>is_symbol</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a> { ... }
+    fn <a href='#method.is_separator' class='fnname'>is_separator</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a> { ... }
+}</pre>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.is_other_control' class='method stab '><code>fn <a href='#tymethod.is_other_control' class='fnname'>is_other_control</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns <code>true</code> if this value is a member
+of the &quot;Other, Control&quot; (Cc) category.</p>
+</div><h3 id='tymethod.is_other_format' class='method stab '><code>fn <a href='#tymethod.is_other_format' class='fnname'>is_other_format</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns <code>true</code> if this value is a member
+of the &quot;Other, Format&quot; (Cf) category.</p>
+</div><h3 id='tymethod.is_other_private_use' class='method stab '><code>fn <a href='#tymethod.is_other_private_use' class='fnname'>is_other_private_use</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member
+of the &quot;Other, Private Use&quot; (Co) category.</p>
+</div><h3 id='tymethod.is_letter_lowercase' class='method stab '><code>fn <a href='#tymethod.is_letter_lowercase' class='fnname'>is_letter_lowercase</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member
+of the &quot;Letter, Lowercase&quot; (Ll) category.</p>
+</div><h3 id='tymethod.is_letter_modifier' class='method stab '><code>fn <a href='#tymethod.is_letter_modifier' class='fnname'>is_letter_modifier</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Letter, Modifier&quot; (Lm) category.</p>
+</div><h3 id='tymethod.is_letter_other' class='method stab '><code>fn <a href='#tymethod.is_letter_other' class='fnname'>is_letter_other</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Letter, Other&quot; (Lo) category.</p>
+</div><h3 id='tymethod.is_letter_titlecase' class='method stab '><code>fn <a href='#tymethod.is_letter_titlecase' class='fnname'>is_letter_titlecase</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Letter, Titlecase&quot; (Lt) category.</p>
+</div><h3 id='tymethod.is_letter_uppercase' class='method stab '><code>fn <a href='#tymethod.is_letter_uppercase' class='fnname'>is_letter_uppercase</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Letter, Uppercase&quot; (Lu) category.</p>
+</div><h3 id='tymethod.is_mark_spacing_combining' class='method stab '><code>fn <a href='#tymethod.is_mark_spacing_combining' class='fnname'>is_mark_spacing_combining</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Mark, Spacing Combining&quot; (Mc) category.</p>
+</div><h3 id='tymethod.is_mark_enclosing' class='method stab '><code>fn <a href='#tymethod.is_mark_enclosing' class='fnname'>is_mark_enclosing</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Mark, Enclosing&quot; (Me) category.</p>
+</div><h3 id='tymethod.is_mark_nonspacing' class='method stab '><code>fn <a href='#tymethod.is_mark_nonspacing' class='fnname'>is_mark_nonspacing</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Mark, Nonspacing&quot; (Mn) category.</p>
+</div><h3 id='tymethod.is_number_decimal_digit' class='method stab '><code>fn <a href='#tymethod.is_number_decimal_digit' class='fnname'>is_number_decimal_digit</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Number, Decimal Digit&quot; (Nd) category.</p>
+</div><h3 id='tymethod.is_number_letter' class='method stab '><code>fn <a href='#tymethod.is_number_letter' class='fnname'>is_number_letter</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Number, Letter&quot; (Nl) category.</p>
+</div><h3 id='tymethod.is_number_other' class='method stab '><code>fn <a href='#tymethod.is_number_other' class='fnname'>is_number_other</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Number, Other&quot; (No) category.</p>
+</div><h3 id='tymethod.is_punctuation_connector' class='method stab '><code>fn <a href='#tymethod.is_punctuation_connector' class='fnname'>is_punctuation_connector</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Punctuation, Connector&quot; (Pc) category.</p>
+</div><h3 id='tymethod.is_punctuation_dash' class='method stab '><code>fn <a href='#tymethod.is_punctuation_dash' class='fnname'>is_punctuation_dash</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Punctuation, Dash&quot; (Pd) category.</p>
+</div><h3 id='tymethod.is_punctuation_close' class='method stab '><code>fn <a href='#tymethod.is_punctuation_close' class='fnname'>is_punctuation_close</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Punctuation, Close&quot; (Pe) category.</p>
+</div><h3 id='tymethod.is_punctuation_final_quote' class='method stab '><code>fn <a href='#tymethod.is_punctuation_final_quote' class='fnname'>is_punctuation_final_quote</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Punctuation, Final Quote&quot; (Pf) category.</p>
+</div><h3 id='tymethod.is_punctuation_initial_quote' class='method stab '><code>fn <a href='#tymethod.is_punctuation_initial_quote' class='fnname'>is_punctuation_initial_quote</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Punctuation, Initial Quote&quot; (Pi) category.</p>
+</div><h3 id='tymethod.is_punctuation_other' class='method stab '><code>fn <a href='#tymethod.is_punctuation_other' class='fnname'>is_punctuation_other</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Punctuation, Other&quot; (Po) category.</p>
+</div><h3 id='tymethod.is_punctuation_open' class='method stab '><code>fn <a href='#tymethod.is_punctuation_open' class='fnname'>is_punctuation_open</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Punctuation, Open&quot; (Ps) category.</p>
+</div><h3 id='tymethod.is_symbol_currency' class='method stab '><code>fn <a href='#tymethod.is_symbol_currency' class='fnname'>is_symbol_currency</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Symbol, Currency&quot; (Sc) category.</p>
+</div><h3 id='tymethod.is_symbol_modifier' class='method stab '><code>fn <a href='#tymethod.is_symbol_modifier' class='fnname'>is_symbol_modifier</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Symbol, Modifier&quot; (Sk) category.</p>
+</div><h3 id='tymethod.is_symbol_math' class='method stab '><code>fn <a href='#tymethod.is_symbol_math' class='fnname'>is_symbol_math</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Symbol, Math&quot; (Sm) category.</p>
+</div><h3 id='tymethod.is_symbol_other' class='method stab '><code>fn <a href='#tymethod.is_symbol_other' class='fnname'>is_symbol_other</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Symbol, Other&quot; (So) category.</p>
+</div><h3 id='tymethod.is_separator_line' class='method stab '><code>fn <a href='#tymethod.is_separator_line' class='fnname'>is_separator_line</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Separator, Line&quot; (Zl) category.</p>
+</div><h3 id='tymethod.is_separator_paragraph' class='method stab '><code>fn <a href='#tymethod.is_separator_paragraph' class='fnname'>is_separator_paragraph</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Separator, Paragraph&quot; (Zp) category.</p>
+</div><h3 id='tymethod.is_separator_space' class='method stab '><code>fn <a href='#tymethod.is_separator_space' class='fnname'>is_separator_space</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+the &quot;Separator, Space&quot; (Zs) category.</p>
+</div></div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.is_other' class='method stab '><code>fn <a href='#method.is_other' class='fnname'>is_other</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+a &quot;Other&quot; category: Cc, Cf, Cn, or Co.
+Surrogates cannot be <code>chars</code> in Rust, so
+they are not included.</p>
+</div><h3 id='method.is_letter' class='method stab '><code>fn <a href='#method.is_letter' class='fnname'>is_letter</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of
+a &quot;Letter&quot; category: Lc, Ll, Lm, Lo, Lt, or Lu.</p>
+</div><h3 id='method.is_mark' class='method stab '><code>fn <a href='#method.is_mark' class='fnname'>is_mark</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of a
+&quot;Mark&quot; category: Mc, Me, or Mn.</p>
+</div><h3 id='method.is_number' class='method stab '><code>fn <a href='#method.is_number' class='fnname'>is_number</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of a
+&quot;Number&quot; category: Nd, Nl, or No.</p>
+</div><h3 id='method.is_punctuation' class='method stab '><code>fn <a href='#method.is_punctuation' class='fnname'>is_punctuation</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of a
+&quot;Punctuation&quot; category: Pc, Pd, Pe, Pf, Pi, Po, or Ps.</p>
+</div><h3 id='method.is_symbol' class='method stab '><code>fn <a href='#method.is_symbol' class='fnname'>is_symbol</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of a
+&quot;Symbol&quot; category: Sc, Sk, Sm, or So.</p>
+</div><h3 id='method.is_separator' class='method stab '><code>fn <a href='#method.is_separator' class='fnname'>is_separator</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if this value is a member of a
+&quot;Separator&quot; category: Zl, Zp, or Zs.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl <a class='trait' href='../unicode_categories/trait.UnicodeCategories.html' title='unicode_categories::UnicodeCategories'>UnicodeCategories</a> for <a href='https://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a></code></li>
+</ul><script type="text/javascript" async
+                              src="../implementors/unicode_categories/trait.UnicodeCategories.js">
+                      </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "unicode_categories";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>
