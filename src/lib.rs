@@ -1,35 +1,142 @@
+//! `unicode_categories` is a crate that adds extensions to the
+//! `char` primitive type that allow for a char to be queried
+//! about whether or not it belongs to a particular Unicode category.
+//!
+//! These extensions exist on the `UnicodeCategories` trait, so
+//! by importing it the extensions will be active on all chars:
+//!
+//! ```
+//! use unicode_categories::UnicodeCategories;
+//!
+//! assert!('a'.is_letter_lowercase());
+//! assert!('A'.is_letter_uppercase());
+//! assert!('\n'.is_other_control());
+//! ```
+//!
+//! `UnicodeCategories` is the only item contained exported
+//! by this crate and contains all of methods that allow
+//! for category queries.
+
 mod tables;
 
 pub trait UnicodeCategories : Sized + Copy {
+
+    /// Returns `true` if this value is a member
+    /// of the "Other, Control" (Cc) category.
     fn is_other_control(self) -> bool;
+
+    /// Returns `true` if this value is a member
+    /// of the "Other, Format" (Cf) category.
     fn is_other_format(self) -> bool;
+
+    /// Returns true if this value is a member
+    /// of the "Other, Private Use" (Co) category.
     fn is_other_private_use(self) -> bool;
+
+    /// Returns true if this value is a member
+    /// of the "Letter, Lowercase" (Ll) category.
     fn is_letter_lowercase(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Letter, Modifier" (Lm) category.
     fn is_letter_modifier(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Letter, Other" (Lo) category.
     fn is_letter_other(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Letter, Titlecase" (Lt) category.
     fn is_letter_titlecase(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Letter, Uppercase" (Lu) category.
     fn is_letter_uppercase(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Mark, Spacing Combining" (Mc) category.
     fn is_mark_spacing_combining(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Mark, Enclosing" (Me) category.
     fn is_mark_enclosing(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Mark, Nonspacing" (Mn) category.
     fn is_mark_nonspacing(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Number, Decimal Digit" (Nd) category.
     fn is_number_decimal_digit(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Number, Letter" (Nl) category.
     fn is_number_letter(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Number, Other" (No) category.
     fn is_number_other(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Punctuation, Connector" (Pc) category.
     fn is_punctuation_connector(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Punctuation, Dash" (Pd) category.
     fn is_punctuation_dash(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Punctuation, Close" (Pe) category.
     fn is_punctuation_close(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Punctuation, Final Quote" (Pf) category.
     fn is_punctuation_final_quote(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Punctuation, Initial Quote" (Pi) category.
     fn is_punctuation_initial_quote(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Punctuation, Other" (Po) category.
     fn is_punctuation_other(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Punctuation, Open" (Ps) category.
     fn is_punctuation_open(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Symbol, Currency" (Sc) category.
     fn is_symbol_currency(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Symbol, Modifier" (Sk) category.
     fn is_symbol_modifier(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Symbol, Math" (Sm) category.
     fn is_symbol_math(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Symbol, Other" (So) category.
     fn is_symbol_other(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Separator, Line" (Zl) category.
     fn is_separator_line(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Separator, Paragraph" (Zp) category.
     fn is_separator_paragraph(self) -> bool;
+
+    /// Returns true if this value is a member of
+    /// the "Separator, Space" (Zs) category.
     fn is_separator_space(self) -> bool;
 
+    /// Returns true if this value is a member of
+    /// a "Other" category: Cc, Cf, Cn, or Co.
+    /// Surrogates cannot be `chars` in Rust, so
+    /// they are not included.
     #[inline]
     fn is_other(self) -> bool {
         self.is_other_control()
@@ -37,6 +144,8 @@ pub trait UnicodeCategories : Sized + Copy {
             || self.is_other_private_use()
     }
 
+    /// Returns true if this value is a member of
+    /// a "Letter" category: Lc, Ll, Lm, Lo, Lt, or Lu.
     #[inline]
     fn is_letter(self) -> bool {
         self.is_letter_lowercase()
@@ -46,6 +155,8 @@ pub trait UnicodeCategories : Sized + Copy {
             || self.is_letter_uppercase()
     }
 
+    /// Returns true if this value is a member of a
+    /// "Mark" category: Mc, Me, or Mn.
     #[inline]
     fn is_mark(self) -> bool {
         self.is_mark_spacing_combining()
@@ -53,6 +164,8 @@ pub trait UnicodeCategories : Sized + Copy {
             || self.is_mark_nonspacing()
     }
 
+    /// Returns true if this value is a member of a
+    /// "Number" category: Nd, Nl, or No.
     #[inline]
     fn is_number(self) -> bool {
         self.is_number_decimal_digit()
@@ -60,6 +173,8 @@ pub trait UnicodeCategories : Sized + Copy {
             || self.is_number_other()
     }
 
+    /// Returns true if this value is a member of a
+    /// "Punctuation" category: Pc, Pd, Pe, Pf, Pi, Po, or Ps.
     #[inline]
     fn is_punctuation(self) -> bool {
         self.is_punctuation_connector()
@@ -72,6 +187,8 @@ pub trait UnicodeCategories : Sized + Copy {
             || self.is_punctuation_open()
     }
 
+    /// Returns true if this value is a member of a
+    /// "Symbol" category: Sc, Sk, Sm, or So.
     #[inline]
     fn is_symbol(self) -> bool {
         self.is_symbol_currency()
@@ -80,6 +197,8 @@ pub trait UnicodeCategories : Sized + Copy {
             || self.is_symbol_other()
     }
 
+    /// Returns true if this value is a member of a
+    /// "Separator" category: Zl, Zp, or Zs.
     #[inline]
     fn is_separator(self) -> bool {
         self.is_separator_line()
