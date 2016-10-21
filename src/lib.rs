@@ -224,7 +224,15 @@ impl UnicodeCategories for char {
 
     #[inline]
     fn is_other_private_use(self) -> bool {
-        table_binary_search(self, tables::OTHER_PRIVATE_USE)
+        match self {
+            // Private Use
+            '\u{E000}'...'\u{F8FF}' => true,
+            // Plane 15, Private Use
+            '\u{F0000}'...'\u{FFFFD}' => true,
+            // Plane 16, private Use
+            '\u{100000}'...'\u{10FFFD}' => true,
+            _ => table_binary_search(self, tables::OTHER_PRIVATE_USE)
+        }
     }
 
     #[inline]
@@ -239,7 +247,25 @@ impl UnicodeCategories for char {
 
     #[inline]
     fn is_letter_other(self) -> bool {
-        table_binary_search(self, tables::LETTER_OTHER)
+        match self {
+            // CJK Ideograph Extension A
+            '\u{3400}'...'\u{4DB5}' => true,
+            // CJK Ideograph
+            '\u{4E00}'...'\u{9FD5}' => true,
+            // Hangul Syllable
+            '\u{AC00}'...'\u{D7A3}' => true,
+            // Tangut Ideograph
+            '\u{17000}'...'\u{187EC}' => true,
+            // CJK Ideograph Extension B
+            '\u{20000}'...'\u{2A6D6}' => true,
+            // CJK Ideograph Extension C
+            '\u{2A700}'...'\u{2B734}' => true,
+            // CJK Ideograph Extension D
+            '\u{2B740}'...'\u{2B81D}' => true,
+            // CJK Ideograph Extension E
+            '\u{2B820}'...'\u{2CEA1}' => true,
+            _ => table_binary_search(self, tables::LETTER_OTHER)
+        }
     }
 
     #[inline]
@@ -386,5 +412,10 @@ mod tests {
     fn is_letter_modifier() {
         assert!('ˢ'.is_letter_modifier());
         assert!(!'m'.is_letter_modifier());
+    }
+
+    #[test]
+    fn is_letter_range() {
+        assert!('界'.is_letter_other());
     }
 }
