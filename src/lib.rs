@@ -387,4 +387,9 @@ mod tests {
         assert!('ˢ'.is_letter_modifier());
         assert!(!'m'.is_letter_modifier());
     }
+
+    #[test]
+    fn is_letter_range() {
+        assert!('界'.is_letter_other());
+    }
 }
