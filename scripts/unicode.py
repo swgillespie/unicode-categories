@@ -41,9 +41,17 @@ categories = {
 
 def generate_rows():
     with open('UnicodeData.txt', 'r') as ucd:
+        # lookback char to identify range starts
+        lbc = 0
         for line in ucd:
             split = line.split(';')
-            char, category = split[0], split[2]
+            char, alias, category = split[0], split[1], split[2]
+            if alias.endswith("Last>"):
+                # exlusive range, since the actual boundaries are emitted
+                # with the normal outer yield
+                for gc in range(int(lbc, 16) + 1, int(char, 16)):
+                    yield(format(gc, 'x'), category)
+            lbc = char
             yield (char, category)
 
 
