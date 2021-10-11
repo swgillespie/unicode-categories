@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import collections
 import re
@@ -77,9 +77,9 @@ def main():
 def output_tables(d):
     for key in sorted(d.keys()):
         name = camel_to_snake_case(key).upper()
-        rust_unicode_escapes = map(lambda x: r"'\u{{{}}}'".format(x), d[key])
+        rust_unicode_escapes = [r"'\u{{{}}}'".format(x) for x in d[key]]
         table_lines = []
-        for chunk in [rust_unicode_escapes[x:x+column_size] for x in xrange(0, len(rust_unicode_escapes), column_size)]:
+        for chunk in [rust_unicode_escapes[x:x+column_size] for x in range(0, len(rust_unicode_escapes), column_size)]:
             table_lines.append('    ' + ', '.join(chunk))
         table_string = ',\n'.join(table_lines)
         print("pub static {} : &'static [char] = &[\n{}];\n".format(name, table_string))
