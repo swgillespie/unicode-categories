@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import collections
+import os
 import re
 
 column_size = 8
@@ -40,6 +41,15 @@ categories = {
 }
 
 def generate_rows():
+    if not os.path.exists('UnicodeData.txt'):
+        import requests
+
+        res = requests.get(
+            'https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt'
+        )
+        res.raise_for_status()
+        with open('UnicodeData.txt', 'w') as f:
+            f.write(res.text)
     with open('UnicodeData.txt', 'r') as ucd:
         for line in ucd:
             split = line.split(';')
