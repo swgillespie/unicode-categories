@@ -249,21 +249,27 @@ impl UnicodeCategories for char {
     fn is_letter_other(self) -> bool {
         match self {
             // CJK Ideograph Extension A
-            '\u{3400}'...'\u{4DB5}' => true,
+            '\u{3400}'...'\u{4DBF}' => true,
             // CJK Ideograph
-            '\u{4E00}'...'\u{9FD5}' => true,
+            '\u{4E00}'...'\u{9FFF}' => true,
             // Hangul Syllable
             '\u{AC00}'...'\u{D7A3}' => true,
             // Tangut Ideograph
-            '\u{17000}'...'\u{187EC}' => true,
+            '\u{17000}'...'\u{187F7}' => true,
+            // Tangut Ideograph Supplement
+            '\u{18D00}'...'\u{18D08}' => true,
             // CJK Ideograph Extension B
-            '\u{20000}'...'\u{2A6D6}' => true,
+            '\u{20000}'...'\u{2A6DF}' => true,
             // CJK Ideograph Extension C
-            '\u{2A700}'...'\u{2B734}' => true,
+            '\u{2A700}'...'\u{2B738}' => true,
             // CJK Ideograph Extension D
             '\u{2B740}'...'\u{2B81D}' => true,
             // CJK Ideograph Extension E
             '\u{2B820}'...'\u{2CEA1}' => true,
+            // CJK Ideograph Extension F
+            '\u{2CEB0}'...'\u{2EBE0}' => true,
+            // CJK Ideograph Extension G
+            '\u{30000}'...'\u{3134A}' => true,
             _ => table_binary_search(self, tables::LETTER_OTHER)
         }
     }
